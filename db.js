@@ -10,4 +10,6 @@ function getUsers (connection) {
 
 function getUser (id, connection) {
   return connection('users').where('id', id)
+    .join('profiles', 'users.id', 'profiles.user_id')
+    .where('users.id', id)
 }
